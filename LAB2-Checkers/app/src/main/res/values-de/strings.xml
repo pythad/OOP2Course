@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dame</string>
+    <string name="app_name_long">Privacy Friendly Dame</string>
+    <string name="Dame">Dame</string>
+
+    <!-- ###MainActivity### -->
+    <string name="chose_opponent">Wählen Sie Ihren Gegner:</string>
+    <string name="game_type_human">Mensch</string>
+    <string name="game_type_bot">Bot</string>
+    <string name="new_game">Neues Spiel</string>
+    <string name="menu_continue_game">Fortsetzen</string>
+    <string name="OverwriteResumableGame">Wenn Sie fortfahren, wird das letzte gespeicherte Spiel überschrieben</string>
+    <string name="OverwriteResumableGameTitle">Gespeichertes Spiel überschreiben?</string>
+    <string name="yes">Ja</string>
+    <string name="cancel">Abbruch</string>
+    <string name="no_resumable_game">Kein Gespeichertes Spiel vorhanden. Bitte starten Sie ein neues Spiel.</string>
+
+
+    <!-- ###Game### -->
+    <string name="pref_header_game">Spiel</string>
+    <string name="pref_group_game">Spiel Einstellungen</string>
+
+    <!-- ### Tutorial ###-->
+    <string name="slide1_heading">Willkommen!</string>
+    <string name="slide1_text">Willkommen zu Privacy Friendly Dame! Diese App ist ein Brettspiel für bis zu zwei Spieler.</string>
+    <string name="slide2_heading">Spielmodus</string>
+    <string name="slide2_text">Wischen oder drücken Sie auf die Pfeile auf der linken und rechten Seite, um den Spielmodus zu ändern. Sie können entweder gegen einen Menschen oder gegen einen Bot spielen.</string>
+    <string name="next">Weiter</string>
+    <string name="skip">Überspringen</string>
+    <string name="menu_tutorial">Tutorial</string>
+    <string name="okay">Okay</string>
+    <string name="main_button_welcomedialog">Willkommen anzeigen</string>
+
+    <!-- ###DRAWER###-->
+    <string name="action_help">Hilfe</string>
+    <string name="action_about">Über</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="action_main">Hauptmenü</string>
+    <string name="action_game">Dame</string>
+    <string name="action_tutorial">Tutorial</string>
+    <string name="navigation_drawer_open">Navigationsleiste öffnen</string>
+    <string name="navigation_drawer_close">Navigationsleiste schließen</string>
+
+    <!--###ABOUT###-->
+    <string name="about">Über uns</string>
+    <string name="version_number">Version</string>
+    <string name="about_author">Autoren:</string>
+    <string name="about_author_contributors">und Mitwirkende.</string>
+    <string name="about_affiliation">In Zusammenarbeit mit:</string>
+    <string name="more_info">Weitere Infos unter:</string>
+
+    <!--###HELP###-->
+    <string name="help">Help</string>
+    <string name="help_whatis">Was ist Privacy Friendly Dame?</string>
+    <string name="help_whatis_answer">Privacy Firendly Dame ist eine Implementierung des Brettspiels Dame</string>
+    <string name="help_feature_one">Feature 1</string>
+    <string name="help_feature_one_answer">Beschreibung des Feature 1</string>
+    <string name="help_privacy">Wieso ist diese Applikation privacy friendly?</string>
+    <string name="help_privacy_answer">Privacy Friendly Dame erfordert keine zusätzlichen Berechtigungen und es hat keine Werbung.</string>
+    <string name="help_permission">Welche Berechtigungen erfordert diese Applikation?</string>
+    <string name="help_permission_answer">Keine.</string>
+    <string name="sHelpOverviewHeading">Übersicht</string>
+    <string name="sHelpExample">Beispiel </string>
+    <string name="sHelpCategoryExample">Beispielkategorie Hilfe</string>
+    <string name="sHelpPrivacyHeading">Privatsphäre Info</string>
+    <string name="sHelpPermissionsHeading">Berechtigungen</string>
+    <string name="sHelpPermissionsDescription">Privacy Friendly Dame erfordert keine Berechtigungen</string>
+    <string name="sHelpIntro">Willkommen auf der Hilfe-Seite. Diese Applikation ist eine Variante des Brettspiels Dame. Es ist möglich sowohl gegen einen Bot zu spielen als auch ein Multiplayer Spiel am selben Gerät zu starten.</string>
+    <string name="sModesCategory">Spielmodus</string>
+    <string name="sModeSummary">Die Applikation bietet die Möglichkeit, unterschiedliche Spielmodi durch wischen oder über die Pfeile im Hauptmenü auszuwählen</string>
+    <string name="sMode1">Dame - Spiel gegen Bot</string>
+    <string name="sMode1Summary">Dieser Spielmodus erlaubt das Spielen gegen einen computergesteuerten Gegner.</string>
+    <string name="sMode2">Dame - Multiplayer</string>
+    <string name="sMode2Summary">Dieser Spielmodus erlaubt das Spielen gegen einen zweiten Spieler am selben Gerät.</string>
+    <string name="sHelpMoveCategory">Bewegung</string>
+    <string name="sHelpMoveTap">Bewegung durch Antippen</string>
+    <string name="sHelpMoveTapSummary">Figuren können durch das Antippen eines Steines und das Antippen eines freien Feldes bewegt werden. Nach der Auswahl einer Figur, werden erlaubte Zielfelder farblich hervorgehoben.</string>
+    <string name="sHelpWin">Ziel des Spiels</string>
+    <string name="sHelpWinCondition">Siegesanforderung</string>
+    <string name="sHelpWinSummary">Das Spiel ist gewonnen, sobald alle Figuren des Gegners gefangen worden sind oder der Gegner keinen gültigen Zug mehr durchführen kann.</string>
+    <string name="help_captures_title">Schlagen</string>
+    <string name="help_captures_descripting">Es besteht Schlagzwang. Wenn man schlagen kann, so muss man dies tun. Bei mehreren Schlagmöglichkeiten wird der Zug bevorzugt, bei dem mehrere gegnerische Steine geschlagen werden. Man kann nur nach vorne schlagen.</string>
+    <string name="help_dame_title">Dame</string>
+    <string name="help_dame_description">Erreicht ein Spielstein die gegnerische Grundlinie, wird er zur Dame befördert. Eine Dame kann sich in jede der vier Richtungen beliebig weit bewegen. Schlägt eine Dame einen gegnerischen Spielstein, so landet sie auf dem Feld hinter dem geschlagenen Stein.</string>
+    <string name="help_game_rules_title">Spielregeln</string>
+    <string name="help_game_setup_title">Gameplay</string>
+    <string name="help_game_setup_description">Das Spiel Dame wird von zwei Spielern gespielt. Ein Spieler kontrolliert die hellen Spielsteine und der andere Spieler hat die dunklen Spielsteine. Der weiße Spieler macht den ersten Zug des Spiels und anschließend wechseln sich die Spieler ab. Ein Spieler darf nicht die gegnerischen Spielsteine bewegen. Ein Zug erfolgt, wenn ein Spielstein auf ein diagonales, freies Nachbarfeld bewegt wird. Befindet sich auf dem Nachbarfeld ein gegnerischer Spielstein, so kann dieser übersprungen und vom Spiel entfernt werden, wenn das dahinterliegende Feld frei ist.</string>
+
+    <!-- ###SETTINGS### -->
+    <string name="title_activity_settings">Einstellungen</string>
+    <string name="pref_header_general">Haupt</string>
+    <string name="pref_example_switch">Beispiel Switch</string>
+    <string name="pref_example_switch_summary">Beispiel Switch Zusammenfassung</string>
+    <string name="pref_example_summary">Beispiel Zusammenfassung</string>
+
+    <!-- ###GAME###-->
+    <string name="title_activity_game">Dame</string>
+    <string name="game_button_start">Neues Spiel</string>
+    <string name="game_button_continue">Fortsetzen</string>
+    <string name="game_desc">Das ist das Hauptmenü. Der Viewpager soll dazu genutzt werden, den Spielmodus zu ändern.</string>
+    <string name="game_current_player_black">Schwarzer Spieler am Zug</string>
+    <string name="game_current_player_white">Weißer Spieler am Zug</string>
+    <string name="game_current_player_ai">Computer am Zug</string>
+
+    <!-- ###WIN SCREEN###-->
+    <string name="sWinDialogTitle">Glückwunsch!</string>
+    <string name="sWinDialogText">Sie haben Ihren Gegner besiegt!</string>
+    <string name="sWinDialogBack">Zurück zum Hauptmenü</string>
+    <string name="sWinDialogShowBoard">Spielfeld anzeigen</string>
+    <string name="help_how_does_the_game_work">Wie sind die Regeln von Dame?</string>
+    <string name="help_what_modes_are_there">Was für Spielmodi gibt es?</string>
+    <string name="help_how_can_you_move">Wie kann ich die Figuren bewegen?</string>
+</resources>
