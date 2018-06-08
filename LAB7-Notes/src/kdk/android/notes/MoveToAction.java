@@ -1,0 +1,157 @@
+package kdk.android.notes;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Toast;
+
+public class MoveToAction
+{
+    private Context context;
+    private DataViewer dataViewer;
+    private ListPropertiesAdapter listPropertiesAdapter;
+    private ItemPropertiesAdapter itemPropertiesAdapter;
+    
+    private ArrayAdapter<String> aa;
+    private Button okButton;
+    private DialogInterface.OnClickListener itemClickedListener;
+    private DialogInterface.OnClickListener listSelectedListener;
+    private DialogInterface.OnClickListener cancelClickedListener;
+    private Integer selectedItem = null;
+    private List<ListDesc> dataViewList = new ArrayList<ListDesc>();
+    private ItemDesc ctxItem;
+    
+    public MoveToAction(
+            Context context, 
+            DataViewer dataViewer, 
+            ListPropertiesAdapter listPropertiesAdapter, 
+            ItemPropertiesAdapter itemPropertiesAdapter)
+    {
+        this.context = context;
+        this.dataViewer = dataViewer;
+        this.listPropertiesAdapter = listPropertiesAdapter;
+        this.itemPropertiesAdapter = itemPropertiesAdapter;
+        
+        itemClickedListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                itemClicked(dialog, which);
+            }
+        };
+        listSelectedListener = new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                listSelected();
+            }
+        };
+        cancelClickedListener = new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                Log.v(L.TAG, "MoveToAction.cancelClickedListener: Cancel");
+                endDialog();
+            }
+        };
+    }
+    
+    
+    public Dialog createDialog()
+    {
+        aa = new ArrayAdapter<String>(context, android.R.layout.select_dialog_singlechoice);
+        
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle(R.string.moveToTitle);
+        builder.setSingleChoiceItems(aa, -1, itemClickedListener);
+        builder.setPositiveButton(R.string.moveToPositive, listSelectedListener);
+        builder.setNegativeButton(R.string.moveToNegative, cancelClickedListener);
+        builder.setCancelable(true);
+        
+        AlertDialog alertDialog = builder.create();
+        return alertDialog;
+    }
+    
+    
+    public void prepareDialog(Dialog dialog, ItemDesc ctxItem)
+    {
+        if(aa == null)
+        {
+            Log.e(L.TAG, "MoveToAction.prepareDialog() called before createDialog()");
+            return;
+        }
+        
+
+        ListDesc selectedListDesc = dataViewer.getSelectedList();
+        dataViewList.clear();
+        dataViewList.addAll(dataViewer.getListData());
+        dataViewList.remove(selectedListDesc);
+        
+        aa.clear();
+        int selectedId = selectedListDesc.getId();
+        for(int i = 0; i < dataViewList.size(); i++)
+        {
+            ListDesc listDesc = dataViewList.get(i);
+            if(listDesc.getId() != selectedId)
+            {
+                aa.add(listDesc.getLabel());
+            }
+        }
+        
+        aa.notifyDataSetChanged();
+        
+        AlertDialog alertDialog = (AlertDialog)dialog;
+        okButton = alertDialog.getButton(AlertDialog.BUTTON_POSITIVE);
+        okButton.setEnabled(selectedItem != null);
+        
+        this.ctxItem = ctxItem;
+    }
+    
+    
+    private void itemClicked(DialogInterface dialog, int which)
+    {
+        Log.d(L.TAG, "MoveToAction.itemClicked(): Selected " + which);
+
+        if(!okButton.isEnabled())
+        {
+            okButton.setEnabled(true);
+        }
+        
+        selectedItem = which;
+    }
+    
+    
+    private void listSelected()
+    {
+        if(selectedItem == null)
+        {
+            Log.e(L.TAG, "MoveToAction.listSelected(): called without a selected item");
+            return;
+        }
+        Log.d(L.TAG, "MoveToAction.listSelected(): called");
+        
+        ListDesc listDesc = dataViewList.get(selectedItem);
+        dataViewer.moveItem(ctxItem, listDesc.getId());
+        itemPropertiesAdapter.notifyDataSetChanged();
+        listPropertiesAdapter.notifyDataSetChanged();
+        
+        String itemMoved = String.format(context.getString(R.string.moveToMoved), ctxItem.getLabel(), listDesc.getLabel());
+        Toast t = Toast.makeText(context, itemMoved, Toast.LENGTH_SHORT);
+        t.show();
+        
+        endDialog();
+    }
+    
+    
+    private void endDialog()
+    {
+        // make sure left overs from prepareDialog don't hold unneeded objects
+        ctxItem = null;
+        okButton = null;
+        dataViewList.clear();
+        aa.clear();
+    }
+}
